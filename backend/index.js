@@ -3,8 +3,10 @@ import mongoose from "mongoose";
 import cors from "cors";
 import morgan from "morgan";
 import userRouter from "./routes/user.js";
+import tourRouter from "./routes/tour.js";
+
 // import placeRouter from "./routes/place.js";
-import placesRouter from "./routes/places.js"
+// import placesRouter from "./routes/places.js"
 const port = 5000;
 const app = express();
 
@@ -19,9 +21,10 @@ app.use("/users", userRouter);
 //creation of places
 // app.use("/places", placeRouter); 
 //
-
+//tours
+app.use("/tour", tourRouter);
 //new creation
-app.use("/placess", placesRouter); 
+// app.use("/place", placesRouter); 
 const MONGODB_URL = "mongodb+srv://wimtiaz14:qwerty12345@cluster0.14t6exh.mongodb.net/?retryWrites=true&w=majority"
 
 //mongodb+srv://wimtiaz14:<password>@cluster0.14t6exh.mongodb.net/?retryWrites=true&w=majority

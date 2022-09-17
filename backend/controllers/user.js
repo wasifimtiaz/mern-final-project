@@ -56,26 +56,4 @@ export const signup = async (req, res) => {
     }
   };
 
-  //by/for google signin
-
-
-export const googlesignin = async (req,res)=>{
-  const { email, name, token, googleid } = req.body;
-  try{
-    const olduser = await userModel.findOne({email});
-    if(olduser){
-      const result= {_id:olduser._id.toString(), email,name};
-      return res.status(200).json({result,token})
-    }
-    const result=await userModel.create({
-      email,
-      name,
-      googleid
-    });
-    res.status(200).json({result, token})
-  }
-  catch(error){
-    res.status(500).json({message: "ERROR OCCURED"});
-        console.log(error);
-  }
-};
+  
